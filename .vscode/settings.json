@@ -28,6 +28,94 @@
     }
   ],
   "github.copilot.chat.scopeSelection": true,
-  "github.copilot.chat.agent.thinkingTool": true
+  "github.copilot.chat.agent.thinkingTool": true,
 
+  // --- Python / Pylance 開発向け追加設定 ---
+  "python.analysis.typeCheckingMode": "standard",
+  "python.analysis.diagnosticSeverityOverrides": {
+    "reportGeneralTypeIssues": true,
+    "reportUnknownArgumentType": "warning",
+    "reportUnknownParameterType": "warning",
+    "reportMissingTypeArgument ": "warning",
+    "reportMissingParameterType": "warning",
+    "reportReturnType": "error",
+    "reportUnusedImport": "warning",
+    "reportUnnecessaryTypeIgnoreComment": "error"
+  },
+
+  // --- LangChain / LangGraph 開発向け追加設定 ---
+  "python.languageServer": "Pylance",
+  "python.envFile": "${workspaceFolder}/.env",
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  "python.analysis.extraPaths": [
+    "${workspaceFolder}/"
+  ],
+  "python.analysis.diagnosticMode": "workspace",
+  "python.analysis.indexing": true,
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.completeFunctionParens": true,
+  "python.analysis.packageIndexDepths": [
+    { "name": "langgraph", "depth": 2 },
+    { "name": "langgraph_sdk", "depth": 2 },
+    { "name": "langchain_core", "depth": 2 },
+    { "name": "langchain_community", "depth": 2 }
+  ],
+
+  // watcher / exclude: 仮想環境やキャッシュを監視対象外にして軽くする
+  "files.watcherExclude": {
+    "**/.venv/**": true,
+    "**/__pycache__/**": true
+  },
+
+  // エディタ整形 / 保存時自動修正
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "charliermarsh.ruff",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit"
+  },
+
+  // 言語別の細かい設定
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "editor.formatOnType": true,
+    "editor.wordBasedSuggestions": "off",
+    "editor.suggest.insertMode": "replace",
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit"
+    }
+  },
+  "[yaml]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[json]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace"
+  },
+
+  // Ruff 設定（Ruff を一本化して軽量化）
+  "ruff.enable": true,
+  "ruff.format.preview": true,
+  "ruff.lineLength": 100,
+  "ruff.interpreter": [
+    "${workspaceFolder}/.venv/bin/python"
+  ],
+  "ruff.lint.enable": true,
+  "ruff.nativeServer": true,
+  "pylint.enabled": false,
+
+  // テスト（プロジェクト運用に合わせて pyproject.toml / CI 側に移譲可）
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestArgs": [
+    "tests"
+  ]
 }

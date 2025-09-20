@@ -1,0 +1,13 @@
+# リポジトリの概要
+`langchain`, `langgraph`ライブラリの検証用のリポジトリです。  
+
+# リポジトリの目的
+- `langchain`, `langgraph`ライブラリの習熟度、理解度の向上
+
+# 回答、コード生成時のルール（重要）
+- `langchain`, `langgraph`の公式ページをなるべく参照して回答するようにすること
+  - https://langchain-ai.github.io/langgraph/
+  - https://python.langchain.com/docs/introduction/
+- ユーザにとって理解がしやすいように回答すること
+  - 例）図式化するなどして視覚的に何をしているかがわかるように
+- 不明点があれば想像で適当に回答するのではなく、不明であることを明示すること
