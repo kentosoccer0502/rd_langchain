@@ -1,0 +1,15 @@
+.env
+.venv
+llm_parameters.py
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.sqlite3
+*.log
+*.pot
+*.pyc
+*.egg-info/
+dist/
+build/
