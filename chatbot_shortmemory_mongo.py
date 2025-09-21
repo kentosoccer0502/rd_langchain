@@ -21,7 +21,7 @@ MONGO_URI = "mongodb://localhost:27017"
 DB_NAME = "checkpointing_test_db"
 
 def main():
-    with MongoDBSaver.from_conn_string(conn_string=MONGO_URI, db_name=DB_NAME) as checkpointer:
+    with MongoDBSaver.from_conn_string(conn_string=MONGO_URI, db_name=DB_NAME-) as checkpointer:
         def call_model(state: State):
             llm = build_azure_llm("gpt-4o")
             response = [llm.invoke(state["messages"])]
