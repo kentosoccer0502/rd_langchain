@@ -62,6 +62,7 @@ graph_builder.add_edge("chatbot", END)
 
 # グラフをコンパイルして実行可能なオブジェクトを作成
 graph = graph_builder.compile()
+print(f"Graph compiled. Nodes: {graph.nodes}")
 
 
 # -- 実行用ユーティリティ ---------------------------------------------
@@ -77,6 +78,7 @@ def stream_graph_updates(user_input: str):
         for value in event.values():
             # 最新のメッセージの content を出力
             print("Assistant:", value["messages"][-1].content)
+            print("State:", value)  # デバッグ用に state 全体も表示
 
 
 # -- メインループ（対話） ---------------------------------------------
